@@ -140,8 +140,7 @@ module.exports = {
       filename: '[name].[hash:4].css',
       chunkFilename: '[id].[hash:4].css',
     }),
-    // write-file-webpack-plugin: forces webpack-dev-server program to write bundle files to the file system:
-    new WriteFilePlugin(),
+    new WriteFilePlugin(),  // forces webpack-dev-server to write bundle files to the file system
     new webpack.HotModuleReplacementPlugin(),
   ],
 };

@@ -175,7 +175,6 @@ module.exports = (env = {}) => {
         },
         canPrint: false,
       }),
-
     ],
   };
 };
