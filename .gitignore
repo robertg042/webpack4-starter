@@ -1,0 +1,12 @@
+.idea/
+.vscode/
+node_modules/
+dist/
+.cache-loader/
+/.env
+package-lock.json
+*.code-workspace
+*.swp
+*.zip
+temp
+/stats.json
