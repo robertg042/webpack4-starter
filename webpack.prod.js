@@ -3,7 +3,7 @@ require('dotenv').config();
 const path = require('path');
 const glob = require('glob');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -87,7 +87,6 @@ module.exports = (env = {}) => {
               loader: 'sass-loader',
               options: {
                 sourceMap: env.sourceMaps,
-                sourceMapContents: true,
               },
             },
           ],
@@ -101,6 +100,7 @@ module.exports = (env = {}) => {
               options: {
                 limit: 15000,
                 name: '[name].[hash].[ext]',
+                esModule: false,
               },
             },
             {
@@ -142,7 +142,7 @@ module.exports = (env = {}) => {
       ],
     },
     plugins: [
-      new CleanWebpackPlugin(['dist']),
+      new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
         filename: 'index.html',
         template: path.resolve(PATHS.src, 'index.html'),

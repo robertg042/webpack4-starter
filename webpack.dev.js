@@ -3,7 +3,7 @@ require('dotenv').config();
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
 
@@ -90,7 +90,6 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
-              sourceMapContents: true,
             },
           },
         ],
@@ -98,9 +97,17 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif|webp)$/i,
         exclude: [/node_modules/],
-        use: ['url-loader'],
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              esModule: false,
+            }
+          }
+        ]
       },
       {
+        // alternative: https://github.com/webpack-contrib/url-loader/issues/6#issuecomment-365019230
         test: /\.(svg)$/i,
         exclude: [/node_modules/],
         use: ['svg-url-loader'],
@@ -123,7 +130,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.resolve(PATHS.src, 'index.html'),
