@@ -46,10 +46,10 @@ if (process.env.NODE_ENV === 'development') {
 ### gsap
 
 ```js
-import { TweenMax, Power2 } from 'gsap/all';
+import gsap from 'gsap';
 
 const el = document.getElementById('shrink-me');
-TweenMax.to(el, 1, { scale: 0.1, ease: Power2.easeIn });
+gsap.to(el, { duration: 1, scale: 0.1, ease: 'power2.easeIn' });
 ```
 
 ### fontawesome icons
