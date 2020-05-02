@@ -5,6 +5,16 @@
 ### include new page to the project
 
 ```diff
+  const entries = {
+    main: path.resolve(PATHS.src, 'index.js'),
+    about: path.resolve(PATHS.pages, 'about', 'about.js'),
++   new: path.resolve(PATHS.pages, 'new', 'new.js'),
+  };
+```
+
+or
+
+```diff
 plugins: [
   // ...
   new CleanWebpackPlugin(['dist']),
@@ -14,11 +24,11 @@ plugins: [
     inject: true,
     chunks: ['main'],
   }),
+  ...pagesHtmlPlugins,
 + new HtmlWebpackPlugin({
-+   filename: 'pages/about/about.html',
-+   template: path.resolve(PATHS.pages, 'about', 'about.html'),
-+   inject: true,
-+   chunks: ['about'],
++   filename: 'pages/new.html',
++   template: path.resolve(PATHS.pages, 'new', 'new.html'),
++   chunks: ['new'],
 + }),
   // ...
 ],
@@ -86,7 +96,7 @@ in scss file, e.g. `shared/styles/base.scss`:
 
 The [treeshaking](https://webpack.js.org/guides/tree-shaking/) that webpack is utilizing can strip down vital components of a library because they are not directly referenced in the app's code. It may be helpful to include them in verbosely.
 
-In case of Greensock it could look like this:
+In case of Greensock (version 2.x) it could look like this:
 
 ```js
 import { TimelineLite, CSSPlugin, AttrPlugin } from 'gsap/all';
@@ -99,6 +109,11 @@ tl.to('.myClass', 1, { x: 100, attr: { width: 300 } });
 ```
 
 [source](https://greensock.com/docs/NPMUsage)
+
+### known issues
+- I can't get HMR to work for js
+- also I have no idea how to make html-loader create relative paths for images and the like. This means setting of publicPath is necessary for nested html paths
+- `purgecss-webpack-plugin` breaks style sourcemaps
 
 ## useful links:
 

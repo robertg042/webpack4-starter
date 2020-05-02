@@ -4,21 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Webpack demo</title>
+    <title>Webpack starter</title>
   </head>
 
   <body>
-    <div id="main-container">
-      <h1>Home</h1>
-      <a href="./pages/about/about.html">To about</a>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, eos a perspiciatis architecto
-        vel sit maxime nulla doloribus similique laboriosam.
-      </p>
-      <span>Image included in html: </span><img src="./assets/webpack.png" alt="Webpack logo"
-        class="logo img-html"><span>Image included in css: </span>
-      <div class="logo img-css"></div>
-    </div>
+    <header>
+      <div class="title">Index</div>
+      <nav>
+        <a href="./pages/about.html">About page</a>
+      </nav>
+      <h1 class="greeting">Hi</h1>
+    </header>
+    <main>
+      <h2>Regular <code>img</code> tag</h2>
+      <img class="webpack-logo" src="./assets/webpack.png" alt="Webpack logo">
+      <h2>background-image</h2>
+      <div class="js-logo"></div>
+      <h2>Alternative starter (gulp)</h2>
+      <a href="https://github.com/robertg042/gulp4-starter" target="_blank" title="gulp starter repo">
+        <img class="gulp-logo" src="./assets/logo-gulp.svg" alt="Svg logo of gulp builder">
+      </a>
+    </main>
   </body>
 
 </html>

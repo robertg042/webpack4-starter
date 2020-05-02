@@ -1,22 +1,6 @@
-@import 'shared/styles/_normalize.scss';
+@use 'shared/styles/normalize';
+@use 'shared/styles/global';
 
-#main-container {
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-h1 {
-  text-align: center;
-}
-
-.logo {
-  display: block;
-  width: 874 / 10 * 1px;
-  height: 989 / 10 * 1px;
-  margin: 0 auto;
-}
-
-.img-css {
-  background-image: url('./assets/webpack.png');
-  background-size: cover;
+.js-logo {
+  background-image: url('./assets/js-logo.png');
 }

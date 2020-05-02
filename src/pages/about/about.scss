@@ -1,5 +1,6 @@
-@import '../../shared/styles/_normalize.scss';
+@use '../../shared/styles/normalize';
+@use '../../shared/styles/global';
 
-h1 {
-  text-align: center;
+.js-logo {
+  background-image: url('../../assets/js-logo.png');
 }
